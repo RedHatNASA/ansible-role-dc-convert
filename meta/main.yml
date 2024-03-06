@@ -1,0 +1,11 @@
+galaxy_info:
+  author: Michael Tipton
+  description: Role to convert OpenShift DeploymentConfigs to Deployment yaml files.
+
+  license: MIT
+
+  min_ansible_version: 2.9
+
+collections:
+  - kubernetes.core
+dependencies: []

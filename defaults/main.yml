@@ -1,0 +1,7 @@
+---
+# defaults file for ansible-role-dc-convert
+
+k8s_api_key:
+k8s_api_host:
+
+yaml_save_dir: "~"

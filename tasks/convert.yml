@@ -1,0 +1,12 @@
+---
+# tasks file for ansible-role-dc-convert
+
+- name: Convert DeploymentConfig for {{ item.metadata.name }} in namespace {{ item.metadata.namespace }}
+  set_fact:
+    buffer: "{{ item | to_nice_yaml | transform_deployment_config }}"
+    filename: "{{ item.metadata.name }}_{{ item.metadata.namespace }}"
+
+- name: Create Deployment yaml for {{ item.metadata.name }} in namespace {{ item.metadata.namespace }}
+  copy:
+    dest: '{{ yaml_save_dir }}/{{ filename }}.yaml'
+    content: "{{ buffer }}"
